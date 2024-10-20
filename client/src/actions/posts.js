@@ -2,10 +2,12 @@ import { FETCH_ALL, CREATE, UPDATE, DELETE, LIKE } from '../constants/actionType
 
 import * as api from '../api/index.js';
 
+// async (dispatch) is allowed by redux-thunk
 export const getPosts = () => async (dispatch) => {
   try {
     const { data } = await api.fetchPosts();
-
+    // dispatch is a function that sends an action to the store.
+    // { type: FETCH_ALL, payload: data } is an action.
     dispatch({ type: FETCH_ALL, payload: data });
   } catch (error) {
     console.log(error.message);

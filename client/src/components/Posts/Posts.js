@@ -6,6 +6,7 @@ import Post from './Post/Post';
 import useStyles from './styles';
 
 const Posts = ({ setCurrentId }) => {
+  // useSelector is a function that takes the current state as an argument and returns whatever data you want from it.
   const posts = useSelector((state) => state.posts);
   const classes = useStyles();
 
